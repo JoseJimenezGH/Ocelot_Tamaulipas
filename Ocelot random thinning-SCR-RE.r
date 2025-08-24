@@ -6,11 +6,11 @@
 #      Gabriela Mendoza-Gutiérrez, Leroy Soria-Díaz, Carlos Barriga-Vallejo,   #
 #         Zavdiel A. Manuel-De la Rosa, Nayeli Martínez-González,              #
 #            Claudia C. Astudillo-Sánchez, José Jiménez                        #
-#                           19:28 24/08/2025                                    #
+#                           19:28 24/08/2025                                   #
 #                                                                              #
 #==============================================================================#
 
-setwd('C:/Users/Jose_/OneDrive/00 Proyecto Jaguar-Zavdiel/Ocelote')
+setwd('C:/...')
 
 # Load required libraries
 library(scrbook)
@@ -57,6 +57,7 @@ M <- 200                   # Augmented population size
 
 
 ################################################################################
+
 # Calculate buffered state space size for irregular trap array
 trapShape <- vect("C:/GIS/traps.shp")
 buff_trap <- buffer(trapShape, width = 6267) # 3 * sigma buffer size
@@ -151,7 +152,7 @@ NimModel <- nimbleCode({
 	for(j in 1:J) {
       # Observed capture history (ID only)
       y.obs[i,j] ~ dbin(id.prob, y.full[i,j])
-    # Implement zero-trick for irregular trap array
+      # Implement zero-trick for irregular trap array
       # https://groups.google.com/g/spatialcapturerecapture/c/NzqUovn8jF0/m/Plg2g6O6AgAJ   
       outj[i,j] <- sqrt(d2[i,j]) > buffer  # avoid MCMC sampling beyond buffer distance
     }
@@ -170,7 +171,7 @@ str(constants <- list(nnid = nnid,      # Non-ID events
                       J = J,            # Number of traps
                       M = M,            # Augmented individuals
                       KT = KT,          # Trap effort
-                      buffer=buff,
+                      buffer=buff,      # State space buffer
                       area = areaS      # State space area
 ))
 
@@ -285,3 +286,4 @@ end.time <- Sys.time()
 end.time - start.time2  # Runtime
 
 summary(mcmcOutput(outNim$samples))
+
