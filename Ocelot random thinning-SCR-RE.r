@@ -2,11 +2,11 @@
 #                                                                              #
 #               Ocelot (Leopardus pardalis) density estimation                 #
 #    El Cielo-Sierra de Tamalave Biological Corridor (Tamaulipas, México)      #
-#               RANDOM THINNING-SPATIAL CAPTURE-RECAPTURE                      #
-#      Gabriela Mendoza-Gutiérrez, Leroy Soria-Díaz, Carlos Barriga-Vallejo,   #
-#         Zavdiel A. Manuel-De la Rosa, Nayeli Martínez-González,              #
-#            Claudia C. Astudillo-Sánchez, José Jiménez                        #
-#                           19:28 24/08/2025                                   #
+#                 RANDOM THINNING-SPATIAL CAPTURE-RECAPTURE                    #
+#               Gabriela Mendoza-Gutiérrez, Leroy Soria-Díaz,                  #
+#      Zavdiel A. Manuel-De la Rosa, José Jiménez, Nayeli Martínez-González,   #
+#            Claudia C. Astudillo-Sánchez, Carlos Barriga-Vallejo              #
+#                             19:28 24/08/2025                                 #
 #                                                                              #
 #==============================================================================#
 
@@ -286,5 +286,6 @@ end.time <- Sys.time()
 end.time - start.time2  # Runtime
 
 summary(mcmcOutput(outNim$samples))
+
 
 
